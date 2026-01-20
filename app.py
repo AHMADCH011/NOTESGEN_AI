@@ -61,4 +61,3 @@ if generate_button:
             st.success("✅ Notes Generated Successfully!")
             st.text_area("Generated Notes:", notes, height=300)
             st.download_button("💾 Download Notes", notes, file_name="lecture_notes.txt")
-
