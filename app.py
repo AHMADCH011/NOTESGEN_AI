@@ -10,13 +10,9 @@ st.set_page_config(page_title="🧠 NoteGen AI", page_icon="📝", layout="cente
 st.title("🧠 NoteGen AI")
 st.markdown("Generate lecture notes quickly from your text!")
 
-# Optional sidebar logo (make sure you have assets/logo.png or comment this line)
-# st.sidebar.image("assets/logo.png", width=120)
-
 # ----------------------------
 # API KEY SETUP
 # ----------------------------
-# Set this secret in Hugging Face Space → Settings → Variables & Secrets
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if not GROQ_API_KEY:
     st.error("❌ GROQ_API_KEY not set! Go to Settings → Variables & Secrets.")
@@ -54,7 +50,6 @@ def generate_notes(text, max_tokens=200):
         response = requests.post(url, headers=headers, json=payload, timeout=30)
         response.raise_for_status()
         data = response.json()
-        # Groq returns text under 'completions' -> 'text'
         return data["completions"][0]["text"].strip()
     except requests.exceptions.RequestException as e:
         st.error(f"❌ API Request Failed: {e}")
