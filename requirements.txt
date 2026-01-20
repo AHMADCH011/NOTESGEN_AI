@@ -11,7 +11,3 @@ huggingface-hub>=0.30
 # JSON parsing / utilities
 numpy==2.4.1
 pandas==2.3.3
-
-# For audio/video processing if needed
-ffmpeg-python==0.3.0
-librosa==0.10.1
